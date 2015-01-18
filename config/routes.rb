@@ -1,4 +1,6 @@
 Blocmarks::Application.routes.draw do
+  get "users/index"
+  get "users/show"
   # get "welcome/index"
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
@@ -27,27 +29,6 @@ Blocmarks::Application.routes.draw do
   #       get 'sold'
   #     end
   #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
 
   # Example resource route within a namespace:
   #   namespace :admin do
