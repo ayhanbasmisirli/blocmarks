@@ -1,0 +1,4 @@
+<h1>All Bookmarks</h1>
+<% @bookmarks.each do |bookmarks| %>
+  <p><%= link_to bookmark.title, bookmark_path(bookmark.id) %></p>
+<% end %>
