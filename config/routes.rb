@@ -3,6 +3,11 @@ Blocmarks::Application.routes.draw do
   # get "welcome/index"
   devise_for :users
   resources :users, only: [:update, :show, :index]
+
+  resources :bookmarks
+
+  resources :topics
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
