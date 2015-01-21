@@ -2,7 +2,11 @@
   <div class="col-md-8">
   <h1><%= @bookmark.title %></h1>
     <div class="panel panel-primary">
-      <div class="panel-heading"><%= @bookmark %></div>
+      <div class="panel-heading">
+     	
+      <%= link_to @bookmark.url %>
+
+      </div>
       
     </div>
     <%= link_to "Go back to Bookmarks", bookmarks_path %>

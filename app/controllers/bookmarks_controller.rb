@@ -1,9 +1,11 @@
 class BookmarksController < ApplicationController
 	def index
 		@bookmarks = Bookmark.all
+
 	end
 	def show
 		@bookmark = Bookmark.find(params[:id])
+		
 	end
 	def new
 		@bookmark = Bookmark.new
@@ -19,7 +21,7 @@ class BookmarksController < ApplicationController
   	end
   	def create
 	    @bookmark = Bookmark.new(bookmark_params)
-	    @bookmark.user = current_user
+	
 	    if @bookmark.save
 	      redirect_to bookmarks_path 
 	      flash[:notice] = "Bookmark created!"

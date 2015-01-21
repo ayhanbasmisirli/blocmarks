@@ -4,8 +4,8 @@
   <div class="col-md-8">
     <div class="form-group">
     <%= form_for @bookmark do |f| %>
-    <p><%= f.text_field :title, class: 'form-control', placeholder: 'Add Topic' %></p>
-    <p><%= f.text_field :title, class: 'form-control', placeholder: 'Add Url' %></p>
+    <p><%= f.text_field :topic, class: 'form-control', placeholder: 'Add Topic' %></p>
+    <p><%= f.text_field :url, class: 'form-control', placeholder: 'Add Url' %></p>
     <p> <%= f.submit 'Save', class: 'btn btn-info' %> </p>
     <% end %>
   </div>

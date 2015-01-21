@@ -30,8 +30,7 @@ topics = Topic.all
 #  # Create Bookmarks
 100.times do
 	Bookmark.create!(
-		url: bookmarks.sample
-		
+		url: "http://www.google.com"		
 	)
 end
 

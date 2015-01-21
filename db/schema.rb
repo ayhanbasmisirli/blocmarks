@@ -14,10 +14,14 @@
 ActiveRecord::Schema.define(version: 20150121034951) do
 
   create_table "bookmarks", force: true do |t|
+    t.string   "url"
+    t.integer  "topic_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
   end
+
+  add_index "bookmarks", ["topic_id"], name: "index_bookmarks_on_topic_id"
 
   create_table "likes", force: true do |t|
     t.datetime "created_at"
@@ -25,9 +29,13 @@ ActiveRecord::Schema.define(version: 20150121034951) do
   end
 
   create_table "topics", force: true do |t|
+    t.string   "title"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "topics", ["user_id"], name: "index_topics_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
