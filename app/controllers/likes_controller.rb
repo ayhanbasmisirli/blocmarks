@@ -4,16 +4,16 @@ class LikesController < ApplicationController
   def create
     @like = Like.new(like_params)
     @like.user = current_user
-    authorize @like
+    
     if @like.save
-      redirect_to bookmarks_path , notice: "like created."
+      redirect_to bookmarks_path , notice: "Like created."
     else
       redirect_to bookmarks_path , notice: "Error, please try again."
     end
   end
   def destroy
     @like = Like.find( params[:id] )
-    authorize @like
+    
     if @like.destroy
       redirect_to bookmarks_path , notice: "Like has been deleted."
     else
