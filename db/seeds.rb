@@ -10,7 +10,7 @@ require 'faker'
 # Create User
 5.times do |n|
 	user = User.create(
-		email:  "#{n}@example.com",
+		email: "#{n}@example.com",
 		password: '12345678'
 	)
 	user.skip_confirmation!
@@ -21,16 +21,18 @@ users = User.all
 # Create Topics
 50.times do
 	Topic.create!(
-		title:  Faker::Lorem.sentence,
+		title: Faker::Lorem.characters(10),
 	 	user: users.sample
 	)
 end
 topics = Topic.all
  
 #  # Create Bookmarks
-100.times do
+50.times do
 	Bookmark.create!(
-		url: "http://www.google.com"		
+		url: Faker::Internet.url,
+		topic: Topic.all.sample
+				
 	)
 end
 
