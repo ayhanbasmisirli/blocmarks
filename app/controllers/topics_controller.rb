@@ -20,10 +20,11 @@ class TopicsController < ApplicationController
     	else
     		flash[:error] = "Error, please try again"
     		render new
-    end
+        end
 
     def update
     end
+
     def edit
     end
 
@@ -31,4 +32,5 @@ class TopicsController < ApplicationController
     def topic_params
     	params.require(:topic).permit(:user_id, :title)
     end
+end
 end
