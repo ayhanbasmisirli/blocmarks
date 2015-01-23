@@ -4,28 +4,7 @@ class TopicsController < ApplicationController
 	end
 
 	def show
-    	@topic = Topic.find(params[:id])
-    	@bookmarks = @topic.bookmarks
-    end
-
-    def new
-    	@topic = Topic.new
-    	@user_id = current_user.id
-    end	
-
-    def create
-    	@topic = Topic.new(topic_params)
-    	if @topic.save
-    		flash[:success] = "Topic Saved."
-    	else
-    		flash[:error] = "Error, please try again"
-    		render new
-        end
-
-    def update
-    end
-
-    def edit
+    	@topic = Topic.includes(:bookmarks).find(params[:id])
     end
 
     private

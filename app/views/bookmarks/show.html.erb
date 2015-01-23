@@ -5,7 +5,7 @@
       <div class="panel-heading">
       <%= link_to "#{@bookmark.url}", bookmark_path(@bookmark) %>
       </div>
-      
+      <%= render partial: 'likes/like', locals: { bookmark: @bookmark } %>
     </div>
     <%= link_to "Go back to Bookmarks", bookmarks_path %>
   </div>

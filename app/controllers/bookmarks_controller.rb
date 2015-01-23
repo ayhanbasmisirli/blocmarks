@@ -1,11 +1,12 @@
 class BookmarksController < ApplicationController
+	before_action :authenticate_user!, except: [:index, :show]
 	def index
 		@bookmarks = Bookmark.all
-
+		@topics = Topic.all
 	end
 	def show
 		@bookmark = Bookmark.find(params[:id])
-		
+		authorize @bookmark
 	end
 	def new
 		@bookmark = Bookmark.new
@@ -20,8 +21,9 @@ class BookmarksController < ApplicationController
 	    end
   	end
   	def create
+  		@topic = Topic.find_or_create_by(title: params[:bookmark][:topic])
 	    @bookmark = Bookmark.new(bookmark_params)
-	
+	    @bookmark.topic = @topic
 	    if @bookmark.save
 	      redirect_to bookmarks_path 
 	      flash[:notice] = "Bookmark created!"

@@ -1,9 +1,13 @@
 class LikesController < ApplicationController
   def new
-	end
+  end
   def create
-    @like = Like.new(like_params)
+    @bookmark = Bookmark.find(params[:bookmark_id])
+    @like = Like.new
     @like.user = current_user
+    @like.bookmark = @bookmark
+
+    # @like = current_user.likes.build(bookmark: @bookmark)
     
     if @like.save
       redirect_to bookmarks_path , notice: "Like created."
@@ -19,12 +23,6 @@ class LikesController < ApplicationController
     else
       redirect_to bookmarks_path , notice: "Error, please try again"
     end
-  end
-
-  private
-
-  def like_params
-    params.permit(:bookmark_id , :user_id)
   end
 
 end

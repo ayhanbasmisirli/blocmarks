@@ -14,7 +14,7 @@ gem 'rails', '4.0.1'
  end
 gem 'devise'
 gem 'faker'
-
+gem 'pundit'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.1.1'
@@ -40,5 +40,5 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-gem 'pundit'
+
 
