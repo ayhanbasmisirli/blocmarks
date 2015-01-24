@@ -11,6 +11,7 @@
       <ul class="nav nav-tabs">
         <li><%= link_to "Blocmarks", root_path %></li>
         <li><%= link_to "Bookmarks", bookmarks_path %></li>
+        <li><%= link_to "My Bookmarks", user_path(current_user) %></li>
          <div class="pull-right user-info">
            <% if current_user %>
              Hello <%= current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>

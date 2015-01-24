@@ -24,6 +24,7 @@ class BookmarksController < ApplicationController
   		@topic = Topic.find_or_create_by(title: params[:bookmark][:topic])
 	    @bookmark = Bookmark.new(bookmark_params)
 	    @bookmark.topic = @topic
+	    @bookmark.user = current_user
 	    if @bookmark.save
 	      redirect_to bookmarks_path 
 	      flash[:notice] = "Bookmark created!"

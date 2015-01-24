@@ -12,4 +12,3 @@ class TopicsController < ApplicationController
     	params.require(:topic).permit(:user_id, :title)
     end
 end
-end
