@@ -7,6 +7,18 @@ class IncomingController < ApplicationController
     # to get a sense of what you're dealing with.
     puts "INCOMING PARAMS HERE: #{params}"
 
+    @topic =  Topic.find_or_create_by(title: params['subject'])
+    @user = User.find_by(email: params['sender'])
+
+    @bookmark = Bookmark.new
+    @bookmark.url = params['body-plain']
+    @bookmark.user = @user
+    @bookmark.topic = @topic
+    @bookmark.save
+    # if @bookmark.save
+    # else
+    #   send_mail_back_to_sender_telling_them_why_it_failed
+    # end
     # You put the message-splitting and business
     # magic here.
 
