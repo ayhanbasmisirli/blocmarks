@@ -7,7 +7,9 @@ Blocmarks::Application.routes.draw do
   resources :bookmarks do
     resources :likes, only: [:create, :destroy]
   end
-   root to: "welcome#index"
+  root to: "welcome#index"
+
+  post 'incoming' => 'incoming#create'
 
   
 end
